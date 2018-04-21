@@ -84,7 +84,7 @@ public class App extends ListenerAdapter
         try {
             writer = new FileWriter(file,true);
 
-            writer.write(timeStamp+" "+objMsg.getContentDisplay());
+            writer.write(timeStamp+" "+objMsg.getContentDisplay()+System.getProperty( "line.separator" ));
             writer.close();
         } catch (IOException e) {
             System.out.println("error writing in file");
