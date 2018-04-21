@@ -60,10 +60,11 @@ public class App extends ListenerAdapter
                     objMsgCh.sendMessage(objUser.getAsMention()+" There is no user with such a userID").queue();
                 }else {
                     try (BufferedReader br = new BufferedReader(new FileReader(f))) {
-                        String line;
+                        String line,finall = "";
                         while ((line = br.readLine()) != null) {
-                            objMsgCh.sendMessage(line).queue();
+                            finall+=line+"\n";
                         }
+                        objMsgCh.sendMessage(finall).queue();
                     } catch (FileNotFoundException e) {
                         e.printStackTrace();
                     } catch (IOException e) {
@@ -88,10 +89,5 @@ public class App extends ListenerAdapter
         } catch (IOException e) {
             System.out.println("error writing in file");
         }
-
-
-
-
-
     }
 }
