@@ -16,6 +16,7 @@ public class queue {
             songs.remove(0);
             return temp;
         }
+        
         public void printq() {
             for(int i =0; i<songs.size(); i++){
                 song temp = (song) songs.get(i);
@@ -24,4 +25,9 @@ public class queue {
                 //print?
             }
         }
+        
+        public void clearq(){
+                songs.clear();
+        }
+        
 }
