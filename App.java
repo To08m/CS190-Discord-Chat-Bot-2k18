@@ -1,3 +1,5 @@
+package To08m;
+
 import net.dv8tion.jda.core.AccountType;
 import net.dv8tion.jda.core.JDA;
 import net.dv8tion.jda.core.JDABuilder;
@@ -25,7 +27,6 @@ public class App extends ListenerAdapter
         MessageChannel objMsgCh= evt.getChannel();
         Message objMsg = evt.getMessage();
         String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
-        //VoiceChannel objVCh = evt.getC
         File file = new File(objUser.getName());
         try {
             file.createNewFile();
@@ -34,9 +35,9 @@ public class App extends ListenerAdapter
         }
         FileWriter writer = null;
         try {
-            writer = new FileWriter(file);
+            writer = new FileWriter(file,true);
 
-            writer.write(timeStamp+" "+objMsg.getContentDisplay()+"\n");
+            writer.write(timeStamp+" "+objMsg.getContentDisplay()+System.getProperty( "line.separator" ));
             writer.close();
         } catch (IOException e) {
             System.out.println("error writing in file");
@@ -46,6 +47,5 @@ public class App extends ListenerAdapter
         if(objMsg.getContentRaw().equalsIgnoreCase(Ref.prefix+"ping")){
             objMsgCh.sendMessage(objUser.getAsMention()+" Pong").queue();
         }
-        else if(objMsg.getContentRaw().equalsIgnoreCase())
     }
 }
